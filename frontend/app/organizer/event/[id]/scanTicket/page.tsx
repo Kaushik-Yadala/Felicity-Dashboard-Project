@@ -139,7 +139,7 @@ export default function ScanTicket() {
             return [
                 `"${participant.fName || ''} ${participant.lName || ''}"`,
                 `"${participant.email || ''}"`,
-                `"${reg.registrationStatus==='Attended'?'Yes':(reg.registrationStatus==='Cancelled'?'cancelled':'No') || ''}"`,
+                `"${reg.registrationStatus==='Attended'?'Yes':(reg.registrationStatus==='Cancelled'?'cancelled':'No')}"`,
                 `"${new Date(reg.attendanceDate).toLocaleDateString()}"`,
             ].join(',')
         })
@@ -159,7 +159,7 @@ export default function ScanTicket() {
         document.body.removeChild(link)
     }
 
-    const handleScan = async (result) => {
+    const handleScan = async (result:any) => {
 
         if (result) {
             setScanResult(result[0].rawValue)
@@ -197,7 +197,7 @@ export default function ScanTicket() {
                 <Card className="w-full h-full overflow-hidden border-4">
                     <QRScanner
                         onScan={handleScan}
-                        onError={(error) => console.log(error?.message)}
+                        onError={(error:any) => console.log(error?.message)}
                     />
                 </Card>
             </div>

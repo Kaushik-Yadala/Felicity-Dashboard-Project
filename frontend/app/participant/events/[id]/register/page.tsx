@@ -30,7 +30,8 @@ type EventData = {
     variants?: Variant[]
     stockQuantity?: number
     purchaseLimit?: number
-    form?: FormField[]
+    form?: FormField[],
+    eventType?: string
 }
 
 type FormResponse = {
@@ -85,7 +86,6 @@ export default function RegisterPage() {
     const handleSubmit = async () => {
         if (!eventData) return
 
-        // Validate required fields
         if (eventData.form) {
             for (const field of eventData.form) {
                 if (field.required && field.label && !formResponses[field.label]) {
@@ -110,21 +110,17 @@ export default function RegisterPage() {
             }
 
             if (eventData.stockQuantity !== undefined) {
-                // Merchandise event
                 payload.amount = amount
             }
 
             const response = await apiClient.post(`/events/${eventId}/register`, payload)
 
             if (response?.data?.success) {
-                // Ensure we have the registration ID before redirecting
                 const registrationId = response?.data?.registrationId || response?.data?.registration?._id
                 
                 if (registrationId) {
-                    // Successfully registered and have confirmation - show success message
                     setSuccess(`Registration successful! Ticket ID: ${response?.data?.ticketID || 'Generated'}. Redirecting...`)
                     
-                    // Wait a moment for user to see success, then redirect
                     setTimeout(() => {
                         if(eventData.eventType === 'Normal'){
                         router.push(`/participant/registered/${registrationId}`)
@@ -200,7 +196,6 @@ export default function RegisterPage() {
                     <div className="text-muted-foreground mb-4">₹{eventData.price || 0}</div>
                 </div>
 
-                {/* Merchandise specific fields */}
                 {eventData.stockQuantity !== undefined && (
                     <>
                         <div>
@@ -241,7 +236,6 @@ export default function RegisterPage() {
                     </>
                 )}
 
-                {/* Custom Form Fields */}
                 {eventData.form && eventData.form.length > 0 && (
                     <div>
                         <div className="text-2xl mb-4">Registration Form</div>

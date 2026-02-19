@@ -72,7 +72,7 @@ export default function ManageOrganizers() {
                 {!loading && organizers.length === 0 && (
                     <p className="text-muted-foreground w-full">No organizers found.</p>
                 )}
-                {!loading && organizers.map((org, index) => (
+                {!loading && organizers.map((org: any, index) => (
                     <AdminOrganizerCard key={index} name={org.name} desc={org.desc} contact={org.contact} category={org.category} disabled={org.disabled} id={org._id}/>
                 ))}
             </div>

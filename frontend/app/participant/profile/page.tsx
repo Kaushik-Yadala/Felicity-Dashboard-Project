@@ -212,7 +212,7 @@ export default function Profile() {
             <div>
               <p className="font-semibold text-sm mb-3">Following</p>
               <div className="flex flex-wrap gap-2">
-                {profileData.following.map((org) => (
+                {profileData.following.map((org:any) => (
                   <div
                     key={org}
                     className="bg-foreground text-background px-3 py-1.5 text-sm border border-foreground cursor-pointer hover:bg-opacity-80 transition-all"
