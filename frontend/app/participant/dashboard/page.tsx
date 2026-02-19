@@ -68,7 +68,7 @@ export default function Dashboard() {
                 Upcoming Events
             </div>
             <div className="flex flex-wrap justify-start gap-4 mt-4 border-y-6 border-x-6 border-foreground dark:border-ring p-6">
-                {upcoming && upcoming.map((event, index) => (
+                {upcoming && upcoming.map((event:any, index) => (
                     <EventCard key={index} title={event.name} eventType={event.type} organizer={event.organizer} eventStartDate={event.startDate} eventEndDate={event.endDate} id={event.id} isOrganizer={false}/>
                 ))}
             </div>
@@ -87,28 +87,28 @@ export default function Dashboard() {
                     </TabsList>
                     <TabsContent value="normal">
                         <div className="flex flex-wrap justify-between gap-4 mt-4  border-y-6 border-x-6 border-foreground dark:border-ring p-6">
-                            {normal && normal.map((event, index) => (
+                            {normal && normal.map((event:any, index) => (
                                 <EventCard key={index} title={event.name} eventType={event.type} organizer={event.organizer} eventStartDate={event.startDate} eventEndDate={event.endDate} id={event.id} isOrganizer={false}/>
                             ))}
                         </div>
                     </TabsContent>
                     <TabsContent value="merch">
                         <div className="flex flex-wrap justify-between gap-4 mt-4  border-y-6 border-x-6 border-foreground dark:border-ring p-6">
-                            {merch && merch.map((event, index) => (
+                            {merch && merch.map((event:any, index) => (
                                 <EventCard key={index} title={event.name} eventType={event.type} organizer={event.organizer} eventStartDate={event.startDate} eventEndDate={event.endDate} id={event.id} isOrganizer={false}/>
                             ))}
                         </div>
                     </TabsContent>
                     <TabsContent value="completed">
                         <div className="flex flex-wrap justify-between gap-4 mt-4  border-y-6 border-x-6 border-foreground dark:border-ring p-6">
-                            {closed && closed.map((event, index) => (
+                            {closed && closed.map((event:any, index) => (
                                 <EventCard key={index} title={event.name} eventType={event.type} organizer={event.organizer} eventStartDate={event.startDate} eventEndDate={event.endDate} id={event.id} isOrganizer={false}/>
                             ))}
                         </div>
                     </TabsContent>
                     <TabsContent value="cancelled">
                         <div className="flex flex-wrap justify-between gap-4 mt-4  border-y-6 border-x-6 border-foreground dark:border-ring p-6">
-                            {cancelled && cancelled.map((event, index) => (
+                            {cancelled && cancelled.map((event:any, index) => (
                                 <EventCard key={index} title={event.name} eventType={event.type} organizer={event.organizer} eventStartDate={event.startDate} eventEndDate={event.endDate} id={event.id} isOrganizer={false}/>
                             ))}
                         </div>
@@ -122,7 +122,7 @@ export default function Dashboard() {
                 {registrations.length === 0 && (
                     <p className="text-muted-foreground w-full">No event registrations found.</p>
                 )}
-                {registrations.map((reg) => (
+                {registrations.map((reg:any) => (
                     <Card key={reg._id} className="w-full sm:w-[48%] lg:w-[32%]">
                         <CardHeader>
                             <CardTitle>{reg.event?.name || "Event"}</CardTitle>

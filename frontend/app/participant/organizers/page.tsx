@@ -64,7 +64,7 @@ export default function Organizers() {
                 {!loading && organizers.length === 0 && (
                     <p className="text-muted-foreground w-full">No organizers found.</p>
                 )}
-                {!loading && organizers.map((org, index) => (
+                {!loading && organizers.map((org:any, index) => (
                     <OrganizerCard key={index} name={org.name} desc={org.desc} contact={org.contact} category={org.category} following={org.following} id={org._id}/>
                 ))}
             </div>

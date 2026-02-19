@@ -64,7 +64,7 @@ export default function OngoingEvents() {
                     <p className="text-muted-foreground w-full">No ongoing events found.</p>
                 )}
                 {!loading && events.map(
-                    (e, index) => <EventCard key={index} title={e.name} eventType={e.eventType} status={e.status} registrations={e.registrations} attendance={e.attendance} revenue={e.revenue} id={e._id} isOrganizer={true}/>
+                    (e:any, index) => <EventCard key={index} title={e.name} eventType={e.eventType} status={e.status} registrations={e.registrations} attendance={e.attendance} revenue={e.revenue} id={e._id} isOrganizer={true}/>
                 )}
             </div>
 

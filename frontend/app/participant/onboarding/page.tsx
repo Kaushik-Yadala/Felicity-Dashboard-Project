@@ -36,7 +36,7 @@ export default function OnboardingPage() {
                     // Extract unique categories from organizers
                     const uniqueCategories = Array.from(
                         new Set(orgs.map((org: Organizer) => org.category).filter(Boolean))
-                    )
+                    ) as string[]
                     setCategories(uniqueCategories)
                 }
             } catch (err) {
