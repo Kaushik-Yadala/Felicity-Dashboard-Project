@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: ["https://felicity-dashboard-project-kq5r.vercel.app/","http://localhost:3000"] }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileUpload({
@@ -26,7 +26,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["https://felicity-dashboard-project-k3f5.vercel.app","http://localhost:3000"],
+    origin: ["https://felicity-dashboard-project-kq5r.vercel.app/","http://localhost:3000"],
     methods: ["GET", "POST"],
   },
 });
