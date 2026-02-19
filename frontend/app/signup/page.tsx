@@ -76,7 +76,7 @@ const router = useRouter()
     setError("")
 
     try {
-      const response = await fetch("http://localhost:9999/auth/signup", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:9999"}/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

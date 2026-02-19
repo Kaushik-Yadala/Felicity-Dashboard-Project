@@ -2,7 +2,7 @@ import axios from "axios";
 
 // 1. Create a base instance pointing to your Node backend
 const api = axios.create({
-  baseURL: "http://localhost:9999/", 
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:9999/", 
   validateStatus: () => true,
 });
 
